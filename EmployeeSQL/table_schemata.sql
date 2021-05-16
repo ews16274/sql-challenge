@@ -1,20 +1,20 @@
--- Create employees table
+-- Create the employees table
 create table employees (
 	emp_no INT PRIMARY KEY NOT NULL,
 	birth_date DATE NOT NULL,
-	first_name VARCHAR(35) NOT NULL,
-	last_name VARCHAR(35) NOT NULL,
+	first_name VARCHAR(40) NOT NULL,
+	last_name VARCHAR(40) NOT NULL,
 	gender VARCHAR(1)NOT NULL,
 	hire_date DATE NOT NULL
 );
 
--- Create departments table
+-- Create the departments table
 create table departments (
-	dept_no VARCHAR(8) primary key NOT NULL,
-	dept_name VARCHAR(40) NOT NULL
+	dept_no VARCHAR(10) primary key NOT NULL,
+	dept_name VARCHAR(45) NOT NULL
 );
 
--- Create titles table
+-- Create the titles table
 create table titles (
 	emp_no INT NOT NULL,
 	title VARCHAR(40) NOT NULL,
@@ -23,10 +23,10 @@ create table titles (
     foreign key (emp_no) references employees (emp_no)
 );
 
--- Create department employee table
+-- Create the department employee table
 create table dept_emp (
 	emp_no INT NOT NULL,
-	dept_no VARCHAR(8) NOT NULL,
+	dept_no VARCHAR(10) NOT NULL,
 	from_date DATE NOT NULL,
 	to_date DATE NOT NULL,
     foreign key (emp_no) references employees (emp_no),
@@ -44,7 +44,7 @@ create table salaries (
 
 -- Create Department manager table
 create table dept_manager (
-	dept_no VARCHAR(8) NOT NULL,
+	dept_no VARCHAR(10) NOT NULL,
 	emp_no INT NOT NULL,
 	from_date DATE NOT NULL,
 	to_date DATE NOT NULL,
